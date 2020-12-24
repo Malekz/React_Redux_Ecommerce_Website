@@ -1,4 +1,31 @@
 .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10rem;
+
   height: 6.5rem;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+
+  .logo {
+    width: 13rem;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .nav {
+    .nav-menu {
+      display: flex;
+      list-style: none;
+
+      .nav-item {
+        padding: 0.5rem 1rem;
+        .nav-link {
+          text-decoration: none;
+        }
+      }
+    }
+  }
 }
