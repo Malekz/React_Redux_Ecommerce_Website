@@ -1,27 +1,25 @@
 import React from 'react';
-import './styles.scss';
+import { Link } from 'react-router-dom';
 
 import Logo from './../../assets/logo.png';
+
+// Styling
+import './styles.scss';
 
 const Header = (props) => {
   return (
     <header className="header">
       <div className="logo">
-        <img src={Logo} alt="logo" />
+        <Link to="/">
+          <img src={Logo} alt="logo" />
+        </Link>
       </div>
       <nav className="nav">
         <ul className="nav-menu">
           <li className="nav-item">
-            <a className="nav-link" href="#">
-              {' '}
-              Home
-            </a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="#">
-              {' '}
-              Search
-            </a>
+            <Link className="nav-link" to="/registration">
+              Register
+            </Link>
           </li>
         </ul>
       </nav>

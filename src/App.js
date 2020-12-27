@@ -3,7 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 
 // Layout
 import MainLayout from './layout/MainLayout';
-
+import HomepageLayout from './layout/HomepageLayout';
 // Pages
 import Homepage from './pages/Homepage/index';
 import Registration from './pages/Registration/index';
@@ -19,14 +19,14 @@ function App() {
           exact
           path="/"
           render={() => (
-            <MainLayout>
+            <HomepageLayout>
               <Homepage />
-            </MainLayout>
+            </HomepageLayout>
           )}
         />
         <Route
           exact
-          path="/"
+          path="/registration"
           render={() => (
             <MainLayout>
               <Registration />
