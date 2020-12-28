@@ -10,7 +10,7 @@ const Header = (props) => {
   return (
     <header className="header">
       <div className="logo">
-        <Link to="/">
+        <Link className="logo-link" to="/">
           <img src={Logo} alt="logo" />
         </Link>
       </div>
@@ -19,6 +19,11 @@ const Header = (props) => {
           <li className="nav-item">
             <Link className="nav-link" to="/registration">
               Register
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link" to="/Login">
+              Login
             </Link>
           </li>
         </ul>

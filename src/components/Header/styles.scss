@@ -8,8 +8,7 @@
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
 
   .logo {
-    width: 10rem;
-
+    width: 15rem;
     img {
       width: 100%;
     }
@@ -21,7 +20,7 @@
       list-style: none;
 
       .nav-item {
-        padding: 0.5rem 1rem;
+        margin-right: 1.5rem;
         .nav-link {
           font-size: 1.8rem;
           line-height: 1;
