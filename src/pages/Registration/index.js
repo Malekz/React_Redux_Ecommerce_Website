@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 
+// Components
+import Signup from './../../components/Signup';
+
+// Styles
 import './styles.scss';
 
 class Registration extends Component {
   render() {
-    return (
-      <div>
-        <h1>Registration </h1>
-      </div>
-    );
+    return <Signup />;
   }
 }
 
