@@ -1,24 +1,46 @@
+// Firebase App (the core Firebase SDK) is always required and
+// must be listed before other Firebase SDKs (software development kit)
 import firebase from 'firebase/app';
+
+// Add the Firebase services that you want to use
 import 'firebase/firestore';
 import 'firebase/auth';
 
-//import { firebaseConfig } from './config';
+// Import Firebase Config
+import { firebaseConfig } from './config';
 
-const firebaseConfig = {
-  apiKey: process.env.REACT_APP_API_KEY,
-  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
-  projectId: process.env.REACTAPP_PROJECT_ID,
-  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
-  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
-  appId: process.env.REACT_APP_APP_ID,
-};
-
+// Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
 
+// Signin with Google
 const GoogleProvider = new firebase.auth.GoogleAuthProvider();
 GoogleProvider.setCustomParameters({ prompt: 'select_account' });
 
 export const signInWithGoogle = () => auth.signInWithPopup(GoogleProvider);
+
+// Handle User Profile
+export const handleUserProfile = async (userAuth, additionalData) => {
+  if (!userAuth) return;
+  const { uid } = userAuth;
+  const userRef = firestore.doc(`users/${uid}`);
+  const snapshot = await userRef.get();
+
+  if (!snapshot.exists) {
+    const { displayName, email } = userAuth;
+    const timestamp = new Date();
+    try {
+      await userRef.set({
+        displayName,
+        email,
+        createdDate: timestamp,
+        ...additionalData,
+      });
+    } catch (err) {
+      // console.log(err);
+    }
+  }
+  return userRef;
+};
