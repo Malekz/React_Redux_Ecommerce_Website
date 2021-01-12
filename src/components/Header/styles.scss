@@ -21,6 +21,10 @@
 
       .nav-item {
         margin-right: 1.5rem;
+
+        &:last-child {
+          margin-right: 0;
+        }
         .nav-link {
           font-size: 1.8rem;
           line-height: 1;
